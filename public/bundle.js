@@ -24100,6 +24100,7 @@
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(207);
 	var Home = __webpack_require__(208);
+	var Interview = __webpack_require__(209);
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
 	var IndexRoute = Router.IndexRoute;
@@ -24107,6 +24108,7 @@
 	module.exports = React.createElement(
 	  Route,
 	  { path: '/', component: Main },
+	  React.createElement(Route, { path: 'interviewQuestionList/:status', component: Interview }),
 	  React.createElement(IndexRoute, { component: Home })
 	);
 
@@ -24172,6 +24174,139 @@
 	});
 
 	module.exports = Home;
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by jmichelin on 12/28/16.
+	 */
+	var React = __webpack_require__(1);
+	var Router = __webpack_require__(159);
+	var InterviewQuestionList = __webpack_require__(210);
+	var InterviewQuestionCreate = __webpack_require__(211);
+	var InterviewQuestionUpdate = __webpack_require__(212);
+
+	var Interview = React.createClass({
+	  displayName: 'Interview',
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      interviewQuestionList: [1, 2, 3]
+	    };
+	  },
+	  render: function render() {
+	    console.log(this.props);
+	    return React.createElement(
+	      'div',
+	      { className: 'row' },
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-8' },
+	        'Interview Question List --> ',
+	        this.props.params.status,
+	        React.createElement(InterviewQuestionList, { status: this.props.params.status, interviewQuestionList: this.state.interviewQuestionList })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        'Interview Question Form',
+	        React.createElement(InterviewQuestionCreate, null),
+	        React.createElement(InterviewQuestionUpdate, { interviewQuestionData: this.props.interviewQuestionData })
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Interview;
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by jmichelin on 12/28/16.
+	 */
+	var React = __webpack_require__(1);
+
+	var ListInterviewQuestions = React.createClass({
+	  displayName: 'ListInterviewQuestions',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h4',
+	        null,
+	        'Interview Question List Here ',
+	        this.props.status
+	      ),
+	      React.createElement(
+	        'p',
+	        null,
+	        this.props.interviewQuestionList
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ListInterviewQuestions;
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by jmichelin on 12/28/16.
+	 */
+	var React = __webpack_require__(1);
+
+	var CreateInterviewQuestions = React.createClass({
+	  displayName: 'CreateInterviewQuestions',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'Create Interview Question Here'
+	    );
+	  }
+	});
+
+	module.exports = CreateInterviewQuestions;
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Created by jmichelin on 12/28/16.
+	 */
+	var React = __webpack_require__(1);
+
+	var UpdateInterviewQuestions = React.createClass({
+	  displayName: 'UpdateInterviewQuestions',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'Update Interview Question Here'
+	    );
+	  }
+	});
+
+	module.exports = UpdateInterviewQuestions;
 
 /***/ }
 /******/ ]);
