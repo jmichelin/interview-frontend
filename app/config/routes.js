@@ -1,13 +1,11 @@
 /**
  * Created by jmichelin on 12/28/16.
  */
-var React = require('react');
-var Main = require('../components/Main');
-var Home = require('../components/Home');
-var Interview = require('../components/InterviewList')
-var Router = require('react-router');
-var Route = Router.Route;
-var IndexRoute = Router.IndexRoute;
+import React from 'react';
+import Main from '../components/Main';
+import Home from '../components/Home';
+import Interview from '../components/InterviewList';
+import { Router, Route, IndexRoute } from 'react-router';
 
 module.exports = (
   <Route path="/" component={Main}>

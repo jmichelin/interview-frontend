@@ -46,19 +46,29 @@
 
 	'use strict';
 
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(158);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _routes = __webpack_require__(206);
+
+	var _routes2 = _interopRequireDefault(_routes);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	/**
 	 * Created by jmichelin on 12/28/16.
 	 */
-	var React = __webpack_require__(1);
-	var reactDOM = __webpack_require__(158);
-	var Router = __webpack_require__(159).Router;
-
-	var routes = __webpack_require__(206);
-
-	reactDOM.render(React.createElement(
-	  Router,
+	_reactDom2.default.render(_react2.default.createElement(
+	  _reactRouter.Router,
 	  null,
-	  routes
+	  _routes2.default
 	), document.getElementById('app'));
 
 /***/ },
@@ -24094,23 +24104,34 @@
 
 	'use strict';
 
-	/**
-	 * Created by jmichelin on 12/28/16.
-	 */
-	var React = __webpack_require__(1);
-	var Main = __webpack_require__(207);
-	var Home = __webpack_require__(208);
-	var Interview = __webpack_require__(209);
-	var Router = __webpack_require__(159);
-	var Route = Router.Route;
-	var IndexRoute = Router.IndexRoute;
+	var _react = __webpack_require__(1);
 
-	module.exports = React.createElement(
-	  Route,
-	  { path: '/', component: Main },
-	  React.createElement(Route, { path: 'interviewQuestionList/:status', component: Interview }),
-	  React.createElement(IndexRoute, { component: Home })
-	);
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Main = __webpack_require__(207);
+
+	var _Main2 = _interopRequireDefault(_Main);
+
+	var _Home = __webpack_require__(208);
+
+	var _Home2 = _interopRequireDefault(_Home);
+
+	var _InterviewList = __webpack_require__(209);
+
+	var _InterviewList2 = _interopRequireDefault(_InterviewList);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = _react2.default.createElement(
+	  _reactRouter.Route,
+	  { path: '/', component: _Main2.default },
+	  _react2.default.createElement(_reactRouter.Route, { path: 'interviewQuestionList/:status', component: _InterviewList2.default }),
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default })
+	); /**
+	    * Created by jmichelin on 12/28/16.
+	    */
 
 /***/ },
 /* 207 */
@@ -24181,47 +24202,110 @@
 
 	'use strict';
 
-	/**
-	 * Created by jmichelin on 12/28/16.
-	 */
-	var React = __webpack_require__(1);
-	var Router = __webpack_require__(159);
-	var InterviewQuestionList = __webpack_require__(210);
-	var InterviewQuestionCreate = __webpack_require__(211);
-	var InterviewQuestionUpdate = __webpack_require__(212);
-
-	var Interview = React.createClass({
-	  displayName: 'Interview',
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      interviewQuestionList: [1, 2, 3]
-	    };
-	  },
-	  render: function render() {
-	    console.log(this.props);
-	    return React.createElement(
-	      'div',
-	      { className: 'row' },
-	      React.createElement(
-	        'div',
-	        { className: 'col-md-8' },
-	        'Interview Question List --> ',
-	        this.props.params.status,
-	        React.createElement(InterviewQuestionList, { status: this.props.params.status, interviewQuestionList: this.state.interviewQuestionList })
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'col-md-4' },
-	        'Interview Question Form',
-	        React.createElement(InterviewQuestionCreate, null),
-	        React.createElement(InterviewQuestionUpdate, { interviewQuestionData: this.props.interviewQuestionData })
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = Interview;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _List = __webpack_require__(210);
+
+	var _List2 = _interopRequireDefault(_List);
+
+	var _Create = __webpack_require__(211);
+
+	var _Create2 = _interopRequireDefault(_Create);
+
+	var _Update = __webpack_require__(212);
+
+	var _Update2 = _interopRequireDefault(_Update);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by jmichelin on 12/28/16.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	//import { Router } from 'react-router'
+
+
+	var Interview = function (_React$Component) {
+	  _inherits(Interview, _React$Component);
+
+	  function Interview() {
+	    _classCallCheck(this, Interview);
+
+	    var _this = _possibleConstructorReturn(this, (Interview.__proto__ || Object.getPrototypeOf(Interview)).call(this));
+
+	    _this.state = {
+	      interviewQuestionList: []
+	    };
+	    return _this;
+	  }
+
+	  _createClass(Interview, [{
+	    key: 'render',
+	    value: function render() {
+	      console.log('this.props => ', this.props);
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-8' },
+	          'Interview Question List (es6) --> ',
+	          this.props.params.status,
+	          _react2.default.createElement(_List2.default, { status: this.props.params.status, interviewQuestionList: this.state.interviewQuestionList })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-4' },
+	          'Interview Question Form',
+	          _react2.default.createElement(_Create2.default, null),
+	          _react2.default.createElement(_Update2.default, { interviewQuestionData: this.props.interviewQuestionData })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Interview;
+	}(_react2.default.Component);
+
+	exports.default = Interview;
+
+	// var Interview = React.createClass({
+	//   getInitialState: function() {
+	//     return {
+	//       interviewQuestionList: [1,2,3]
+	//     }
+	//   },
+	//   render: function() {
+	//     console.log(this.props)
+	//     return (
+	//     <div className="row">
+	//       <div className="col-md-8">
+	//         Interview Question List --> {this.props.params.status}
+	//         <InterviewQuestionList status={this.props.params.status} interviewQuestionList={this.state.interviewQuestionList} />
+	//       </div>
+	//       <div className="col-md-4">
+	//         Interview Question Form
+	//         <InterviewQuestionCreate/>
+	//         <InterviewQuestionUpdate interviewQuestionData={this.props.interviewQuestionData}/>
+	//       </div>
+	//     </div>
+	//     )
+	//   }
+	// });
+
+	// module.exports = Interview;
 
 /***/ },
 /* 210 */
@@ -24229,34 +24313,168 @@
 
 	'use strict';
 
-	/**
-	 * Created by jmichelin on 12/28/16.
-	 */
-	var React = __webpack_require__(1);
-
-	var ListInterviewQuestions = React.createClass({
-	  displayName: 'ListInterviewQuestions',
-
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h4',
-	        null,
-	        'Interview Question List Here ',
-	        this.props.status
-	      ),
-	      React.createElement(
-	        'p',
-	        null,
-	        this.props.interviewQuestionList
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = ListInterviewQuestions;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by jmichelin on 12/28/16.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * TODO Fetch and display questions
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var InterviewQuestionList = function (_React$Component) {
+	  _inherits(InterviewQuestionList, _React$Component);
+
+	  function InterviewQuestionList() {
+	    _classCallCheck(this, InterviewQuestionList);
+
+	    var _this = _possibleConstructorReturn(this, (InterviewQuestionList.__proto__ || Object.getPrototypeOf(InterviewQuestionList)).call(this));
+
+	    _this.state = {
+	      interviewQuestionList: [],
+	      items: []
+	    };
+	    return _this;
+	  }
+
+	  _createClass(InterviewQuestionList, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _this2 = this;
+
+	      var fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list';
+	      fetch(fetchUrl).then(function (response) {
+	        return response.json();
+	      }).then(function (items) {
+	        console.log('interviewQuestions => ', items);
+	        return _this2.setState({ items: items });
+	      });
+	    }
+	  }, {
+	    key: 'filter',
+	    value: function filter(e) {
+	      this.setState({ filter: e.target.value });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      var items = this.state.items;
+	      if (this.state.filter) {
+	        items = items.filter(function (item) {
+	          return item.genre.toLowerCase().includes(_this3.state.filter.toLowerCase());
+	        });
+	      }
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement('input', { type: 'text', onChange: this.filter.bind(this) }),
+	        items.map(function (item) {
+	          return _react2.default.createElement(Interview, { key: item._id, interview: item });
+	        })
+	      );
+	    }
+	  }]);
+
+	  return InterviewQuestionList;
+	}(_react2.default.Component);
+
+	var Interview = function Interview(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      props.interview.genre
+	    ),
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      props.interview.title,
+	      ' - Time to Answer ',
+	      props.interview.timeToAnswer,
+	      ' mins'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      props.interview.questionText
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      props.interview.answerText
+	    )
+	  );
+	};
+
+	//   render() {
+	//     let interviewQuestionList = this.state.interviewQuestionList
+	//     if(this.state.filter) {
+	//       interviewQuestionList = interviewQuestionList.filter(interviewQuestion =>
+	//         interviewQuestion.genre.toLowerCase()
+	//           .includes(this.state.filter.toLowerCase()))
+	//     }
+	//
+	//     let items = this.state.items
+	//     if(this.state.filter) {
+	//       items = items.filter(item =>
+	//         item.genre.toLowerCase()
+	//           .includes(this.state.filter.toLowerCase()))
+	//     }
+	//
+	//     return (
+	//       <div>
+	//         <input type="text" onChange={this.filter.bind(this)}/>
+	//         <h4>Interview Question List Here {this.props.status}</h4>
+	//         <div>
+	//           {interviewQuestionList.map(item => <InterviewQuestion key={item._id} interview={item} />)}
+	//         </div>
+	//       </div>
+	//     )
+	//   }
+	// }
+	//
+	// const InterviewQuestion = (props) => {
+	//   return (
+	//     <div>
+	//       <h3>{props.interview.genre}</h3>
+	//       <h4>{props.interview.title} - Time to Answer {props.interview.timeToAnswer} mins</h4>
+	//       <p>{props.interview.questionText}</p>
+	//       <p>{props.interview.answerText}</p>
+	//     </div>
+	//   )
+	// }
+
+	exports.default = InterviewQuestionList;
+
+	// var InterviewQuestionList = React.createClass({
+	//   render: function() {
+	//     return (
+	//       <div>
+	//         <h4>Interview Question List Here {this.props.status}</h4>
+	//         <p>{this.props.interviewQuestionList}</p>
+	//       </div>
+	//     )
+	//   }
+	// });
+	//
+	// module.exports = InterviewQuestionList;
 
 /***/ },
 /* 211 */
@@ -24266,6 +24484,7 @@
 
 	/**
 	 * Created by jmichelin on 12/28/16.
+	 * TODO form to add interview questions
 	 */
 	var React = __webpack_require__(1);
 
