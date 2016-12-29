@@ -24358,9 +24358,9 @@
 	      var fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list';
 	      fetch(fetchUrl).then(function (response) {
 	        return response.json();
-	      }).then(function (items) {
-	        console.log('interviewQuestions => ', items);
-	        return _this2.setState({ items: items });
+	      }).then(function (interviewQuestionList) {
+	        console.log('interviewQuestions => ', interviewQuestionList);
+	        return _this2.setState({ interviewQuestionList: interviewQuestionList });
 	      });
 	    }
 	  }, {
@@ -24373,18 +24373,18 @@
 	    value: function render() {
 	      var _this3 = this;
 
-	      var items = this.state.items;
+	      var interviewQuestionList = this.state.interviewQuestionList;
 	      if (this.state.filter) {
-	        items = items.filter(function (item) {
-	          return item.genre.toLowerCase().includes(_this3.state.filter.toLowerCase());
+	        interviewQuestionList = interviewQuestionList.filter(function (interviewQuestion) {
+	          return interviewQuestion.genre.toLowerCase().includes(_this3.state.filter.toLowerCase());
 	        });
 	      }
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement('input', { type: 'text', onChange: this.filter.bind(this) }),
-	        items.map(function (item) {
-	          return _react2.default.createElement(Interview, { key: item._id, interview: item });
+	        interviewQuestionList.map(function (interviewQuestion) {
+	          return _react2.default.createElement(InterviewQuestion, { key: interviewQuestion._id, interview: interviewQuestion });
 	        })
 	      );
 	    }
@@ -24393,7 +24393,7 @@
 	  return InterviewQuestionList;
 	}(_react2.default.Component);
 
-	var Interview = function Interview(props) {
+	var InterviewQuestion = function InterviewQuestion(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    null,

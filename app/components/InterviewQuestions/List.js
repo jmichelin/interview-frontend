@@ -23,9 +23,9 @@ class InterviewQuestionList extends React.Component {
       )
       .then(
         (
-          items: []) => {
-          console.log('interviewQuestions => ', items);
-          return this.setState({items})
+          interviewQuestionList: []) => {
+          console.log('interviewQuestions => ', interviewQuestionList);
+          return this.setState({interviewQuestionList})
         }
       )
   }
@@ -34,22 +34,22 @@ class InterviewQuestionList extends React.Component {
     this.setState({filter: e.target.value})
   }
   render () {
-    let items = this.state.items
+    let interviewQuestionList = this.state.interviewQuestionList
     if(this.state.filter) {
-      items = items.filter(item =>
-        item.genre.toLowerCase()
+      interviewQuestionList = interviewQuestionList.filter(interviewQuestion =>
+        interviewQuestion.genre.toLowerCase()
           .includes(this.state.filter.toLowerCase()))
     }
     return (
       <div>
         <input type="text" onChange={this.filter.bind(this)}/>
-        {items.map(item => <Interview key={item._id} interview={item} />)}
+        {interviewQuestionList.map(interviewQuestion => <InterviewQuestion key={interviewQuestion._id} interview={interviewQuestion} />)}
       </div>
     )
   }
 }
 
-const Interview = (props) => {
+const InterviewQuestion = (props) => {
   return (
     <div>
       <h3>{props.interview.genre}</h3>
