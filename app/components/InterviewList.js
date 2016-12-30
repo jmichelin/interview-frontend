@@ -2,31 +2,42 @@
  * Created by jmichelin on 12/28/16.
  */
 import React from 'react'
+import { Panel, Accordion, Button } from 'react-bootstrap'
 //import { Router } from 'react-router'
 import InterviewQuestionList from './InterviewQuestions/List'
 import InterviewQuestionCreate from './InterviewQuestions/Create'
 import InterviewQuestionUpdate from './InterviewQuestions/Update'
 
 class Interview extends React.Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
-      interviewQuestionList: []
+      interviewQuestionList: [],
+      open: false
     }
   }
 
   render() {
-    console.log('this.props => ', this.props)
+    console.log('+++InterviewList.js --> this.props => ', this.props)
     return (
-      <div className="row">
-        <div className="col-md-8">
-          Interview Question List (es6) --> {this.props.params.status}
-          <InterviewQuestionList status={this.props.params.status} interviewQuestionList={this.state.interviewQuestionList} />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <Button bsStyle="primary" onClick={ ()=> this.setState({ open: !this.state.open })}>
+              Interview Question Form
+            </Button>
+            <Panel collapsible expanded={this.state.open}>
+              <InterviewQuestionCreate/>
+            </Panel>
+            <InterviewQuestionUpdate interviewQuestionData={this.props.interviewQuestionData}/>
+          </div>
         </div>
-        <div className="col-md-4">
-          Interview Question Form
-          <InterviewQuestionCreate/>
-          <InterviewQuestionUpdate interviewQuestionData={this.props.interviewQuestionData}/>
+        <div className="row">
+          <div className="col-md-12">
+            Filter on {this.props.params.status} questions
+            <InterviewQuestionList status={this.props.params.status}
+                                   interviewQuestionList={this.state.interviewQuestionList}/>
+          </div>
         </div>
       </div>
     )
@@ -34,29 +45,3 @@ class Interview extends React.Component {
 }
 
 export default Interview
-
-// var Interview = React.createClass({
-//   getInitialState: function() {
-//     return {
-//       interviewQuestionList: [1,2,3]
-//     }
-//   },
-//   render: function() {
-//     console.log(this.props)
-//     return (
-//     <div className="row">
-//       <div className="col-md-8">
-//         Interview Question List --> {this.props.params.status}
-//         <InterviewQuestionList status={this.props.params.status} interviewQuestionList={this.state.interviewQuestionList} />
-//       </div>
-//       <div className="col-md-4">
-//         Interview Question Form
-//         <InterviewQuestionCreate/>
-//         <InterviewQuestionUpdate interviewQuestionData={this.props.interviewQuestionData}/>
-//       </div>
-//     </div>
-//     )
-//   }
-// });
-
-// module.exports = Interview;

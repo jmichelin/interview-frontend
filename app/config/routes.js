@@ -9,6 +9,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 
 module.exports = (
   <Route path="/" component={Main}>
+    <Route path="interviewQuestionList" component={Interview} />
     <Route path="interviewQuestionList/:status" component={Interview} />
     <IndexRoute component={Home} />
   </Route>

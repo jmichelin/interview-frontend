@@ -24,7 +24,7 @@ class InterviewQuestionList extends React.Component {
       .then(
         (
           interviewQuestionList: []) => {
-          console.log('interviewQuestions => ', interviewQuestionList);
+          console.log('+++interviewQuestions/List.js ---> interviewQuestionList => ', interviewQuestionList);
           return this.setState({interviewQuestionList})
         }
       )
@@ -42,7 +42,7 @@ class InterviewQuestionList extends React.Component {
     }
     return (
       <div>
-        <input type="text" onChange={this.filter.bind(this)}/>
+        <input style={{marginBottom: 10}} type="text" onChange={this.filter.bind(this)}/>
         {interviewQuestionList.map(interviewQuestion => <InterviewQuestion key={interviewQuestion._id} interview={interviewQuestion} />)}
       </div>
     )
@@ -51,65 +51,18 @@ class InterviewQuestionList extends React.Component {
 
 const InterviewQuestion = (props) => {
   return (
-    <div>
-      <h3>{props.interview.genre}</h3>
-      <h4>{props.interview.title} - Time to Answer {props.interview.timeToAnswer} mins</h4>
+  <div className="panel panel-primary">
+    <div className="panel-heading">
+      <h3 className="panel-title">({props.interview.genre}) {props.interview.title} - Time to Answer {props.interview.timeToAnswer} mins</h3>
+    </div>
+    <div className="panel-body">
       <p>{props.interview.questionText}</p>
       <p>{props.interview.answerText}</p>
     </div>
+  </div>
   )
 }
 
 
-//   render() {
-//     let interviewQuestionList = this.state.interviewQuestionList
-//     if(this.state.filter) {
-//       interviewQuestionList = interviewQuestionList.filter(interviewQuestion =>
-//         interviewQuestion.genre.toLowerCase()
-//           .includes(this.state.filter.toLowerCase()))
-//     }
-//
-//     let items = this.state.items
-//     if(this.state.filter) {
-//       items = items.filter(item =>
-//         item.genre.toLowerCase()
-//           .includes(this.state.filter.toLowerCase()))
-//     }
-//
-//     return (
-//       <div>
-//         <input type="text" onChange={this.filter.bind(this)}/>
-//         <h4>Interview Question List Here {this.props.status}</h4>
-//         <div>
-//           {interviewQuestionList.map(item => <InterviewQuestion key={item._id} interview={item} />)}
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-//
-// const InterviewQuestion = (props) => {
-//   return (
-//     <div>
-//       <h3>{props.interview.genre}</h3>
-//       <h4>{props.interview.title} - Time to Answer {props.interview.timeToAnswer} mins</h4>
-//       <p>{props.interview.questionText}</p>
-//       <p>{props.interview.answerText}</p>
-//     </div>
-//   )
-// }
 
 export default InterviewQuestionList
-
-// var InterviewQuestionList = React.createClass({
-//   render: function() {
-//     return (
-//       <div>
-//         <h4>Interview Question List Here {this.props.status}</h4>
-//         <p>{this.props.interviewQuestionList}</p>
-//       </div>
-//     )
-//   }
-// });
-//
-// module.exports = InterviewQuestionList;
