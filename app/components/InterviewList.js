@@ -2,7 +2,7 @@
  * Created by jmichelin on 12/28/16.
  */
 import React from 'react'
-import { Panel, Accordion, Button } from 'react-bootstrap'
+import { Panel, Button } from 'react-bootstrap'
 //import { Router } from 'react-router'
 import InterviewQuestionList from './InterviewQuestions/List'
 import InterviewQuestionCreate from './InterviewQuestions/Create'

@@ -3,6 +3,7 @@
  * TODO Fetch and display questions
  */
 import React from 'react';
+import { Accordion, Panel } from 'react-bootstrap'
 
 class InterviewQuestionList extends React.Component {
   constructor () {
@@ -22,8 +23,7 @@ class InterviewQuestionList extends React.Component {
         }
       )
       .then(
-        (
-          interviewQuestionList: []) => {
+        (interviewQuestionList: []) => {
           console.log('+++interviewQuestions/List.js ---> interviewQuestionList => ', interviewQuestionList);
           return this.setState({interviewQuestionList})
         }
@@ -50,15 +50,20 @@ class InterviewQuestionList extends React.Component {
 }
 
 const InterviewQuestion = (props) => {
+  console.log('props', props);
+  let header = props.interview.title + ' ' + props.interview.genre + ' ' + props.interview.timeToAnswer + ' mins to answer';
   return (
   <div className="panel panel-primary">
-    <div className="panel-heading">
-      <h3 className="panel-title">({props.interview.genre}) {props.interview.title} - Time to Answer {props.interview.timeToAnswer} mins</h3>
-    </div>
-    <div className="panel-body">
-      <p>{props.interview.questionText}</p>
-      <p>{props.interview.answerText}</p>
-    </div>
+    <Accordion>
+      <Panel header={header} bsStyle="primary" eventKey={props.interview._id}>
+        <Panel header="Question" bsStyle="danger">
+          <p>{props.interview.questionText}</p>
+        </Panel>
+        <Panel header="Answer" bsStyle="success">
+          <p>{props.interview.answerText}</p>
+        </Panel>
+      </Panel>
+    </Accordion>
   </div>
   )
 }
