@@ -10,7 +10,7 @@ var Main = React.createClass({
         <nav className="navbar navbar-default" role="navigation">
           <div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
             <div className="navbar-header">MENU
-              <div className="collapse navbar-collapse" id="navbar-collapse-1">
+              <div className="navbar" id="navbar-1">
                 <ul className="nav navbar-nav">
                   <li><a href="#/interviewQuestionList/active">Interview Question List</a></li>
                 </ul>

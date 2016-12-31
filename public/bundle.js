@@ -24164,7 +24164,7 @@
 	            "MENU",
 	            React.createElement(
 	              "div",
-	              { className: "collapse navbar-collapse", id: "navbar-collapse-1" },
+	              { className: "navbar", id: "navbar-1" },
 	              React.createElement(
 	                "ul",
 	                { className: "nav navbar-nav" },
@@ -43252,7 +43252,7 @@
 
 	var InterviewQuestion = function InterviewQuestion(props) {
 	  console.log('props', props);
-	  var header = props.interview.title + ' ' + props.interview.genre + ' ' + props.interview.timeToAnswer + ' mins to answer';
+	  var header = '(' + props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'panel panel-primary' },
@@ -43377,9 +43377,9 @@
 	      }).catch(function (e) {
 	        return console.log('There has been a problem with your fetch operation: ' + e.message);
 	      });
-	      console.log('handleSubmit event interviewQuestions/Create.js');
-	      alert('data was submitted: ' + JSON.stringify(data));
-	      event.preventDefault();
+	      // console.log('handleSubmit event interviewQuestions/Create.js');
+	      // alert('data was submitted: ' + JSON.stringify(data));
+	      //event.preventDefault();
 	    }
 	  }, {
 	    key: 'render',
@@ -43390,7 +43390,7 @@
 	        'Create Interview Question Here',
 	        _react2.default.createElement(
 	          'form',
-	          { onSubmit: this.handleSubmit },
+	          { onSubmit: this.handleSubmit, method: 'post' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'input-group col-md-12' },

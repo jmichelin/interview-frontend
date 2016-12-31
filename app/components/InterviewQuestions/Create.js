@@ -58,15 +58,15 @@ class CreateInterviewQuestions extends React.Component {
       }
       })
       .catch((e) => console.log('There has been a problem with your fetch operation: ' + e.message));
-    console.log('handleSubmit event interviewQuestions/Create.js');
-    alert('data was submitted: ' + JSON.stringify(data));
-    event.preventDefault();
+    // console.log('handleSubmit event interviewQuestions/Create.js');
+    // alert('data was submitted: ' + JSON.stringify(data));
+    //event.preventDefault();
   }
 
   render() {
     return (
       <div>Create Interview Question Here
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} method="post">
           <div className="input-group col-md-12">
             <span className="input-group-addon primary" style={{width:163}} id="genre">Genre</span>
             <input type="text" className="form-control" placeholder="Enter Genre" value={this.state.genre} name="genre"

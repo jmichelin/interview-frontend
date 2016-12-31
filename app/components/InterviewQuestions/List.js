@@ -51,7 +51,7 @@ class InterviewQuestionList extends React.Component {
 
 const InterviewQuestion = (props) => {
   console.log('props', props);
-  let header = props.interview.title + ' ' + props.interview.genre + ' ' + props.interview.timeToAnswer + ' mins to answer';
+  let header = '('+props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
   return (
   <div className="panel panel-primary">
     <Accordion>
