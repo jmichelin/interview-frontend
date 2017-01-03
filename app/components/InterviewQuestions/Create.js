@@ -15,7 +15,7 @@ class CreateInterviewQuestions extends React.Component {
         "answerText": '',
         "status": ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this); //controls context of handleChange
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -30,6 +30,7 @@ class CreateInterviewQuestions extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     let data = {
       genre: this.state.genre,
       title: this.state.title,
@@ -58,9 +59,6 @@ class CreateInterviewQuestions extends React.Component {
       }
       })
       .catch((e) => console.log('There has been a problem with your fetch operation: ' + e.message));
-    // console.log('handleSubmit event interviewQuestions/Create.js');
-    // alert('data was submitted: ' + JSON.stringify(data));
-    //event.preventDefault();
   }
 
   render() {
@@ -89,7 +87,7 @@ class CreateInterviewQuestions extends React.Component {
           </div>
           <div className="input-group col-md-12">
             <span className="input-group-addon primary" style={{width:163}} id="answerText">Answer Text</span>
-            <textarea rows="5" className="form-control" placeholder="Enter Answer Text" value={this.state.answerText} name="answerText"
+            <textarea rows="5" cols="10" className="form-control" placeholder="Enter Answer Text" value={this.state.answerText} name="answerText"
                       onChange={this.handleChange} />
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>

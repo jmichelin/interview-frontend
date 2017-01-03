@@ -43350,6 +43350,7 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(event) {
+	      event.preventDefault();
 	      var data = {
 	        genre: this.state.genre,
 	        title: this.state.title,
@@ -43377,9 +43378,6 @@
 	      }).catch(function (e) {
 	        return console.log('There has been a problem with your fetch operation: ' + e.message);
 	      });
-	      // console.log('handleSubmit event interviewQuestions/Create.js');
-	      // alert('data was submitted: ' + JSON.stringify(data));
-	      //event.preventDefault();
 	    }
 	  }, {
 	    key: 'render',
@@ -43445,7 +43443,7 @@
 	              { className: 'input-group-addon primary', style: { width: 163 }, id: 'answerText' },
 	              'Answer Text'
 	            ),
-	            _react2.default.createElement('textarea', { rows: '5', className: 'form-control', placeholder: 'Enter Answer Text', value: this.state.answerText, name: 'answerText',
+	            _react2.default.createElement('textarea', { rows: '5', cols: '10', className: 'form-control', placeholder: 'Enter Answer Text', value: this.state.answerText, name: 'answerText',
 	              onChange: this.handleChange })
 	          ),
 	          _react2.default.createElement(
