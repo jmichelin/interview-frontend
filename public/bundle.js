@@ -24209,9 +24209,285 @@
 
 	  render: function render() {
 	    return React.createElement(
-	      "h2",
-	      { className: "text-center" },
-	      "Find interview questions"
+	      "div",
+	      { className: "container" },
+	      React.createElement(
+	        "h2",
+	        { className: "text-center" },
+	        "Goals of the Interview"
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's awareness of self contribution"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "What they did"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Why they did it"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "How that impacted the team"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "What effect that had on the final deliverable"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's actual contribution"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "Diagram a rough overview of the project, and emphasis own contribution to it"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "What technology decisions the they made and why"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "What impact would the product have had if candidate was absent or off-course"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's reasons for making certain decisions"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "What alternative approaches were considered and how they were unsuitable"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "What challenges were encountered and overcome, or avoided by changing direction"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's coding maturity/comfort "
+	      ),
+	      React.createElement(
+	        "em",
+	        null,
+	        "Are they JR, are they SR, always be looking for these in every answer"
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "Nervous Tells"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they ask for guidance on best practices, or just do them"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they answer the question, or add requirements"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they just start coding, or do they visualize first, pseudocode, etc. before solving"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they ask clarifying questions or just jump in"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they communicate using proper terminology (stack, queue, hash, instead of object/array/etc.)"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they write on the board what they are communicating or thinking"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they come across too academic"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they answer too detailed?"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Do they lack detail when it was warranted?"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's thought process"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "Communicates adequately"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Engages while thinking"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Attempts to understand the requirements"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Logical, methodical, clear, best practices"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Simulates logic correctly"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Edge cases"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Debugs"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's leadership maturity"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "How did they help a team member in distress"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "How did they contribute to the growth of others"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "How did they encourage a struggling team member"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "How did they stay the course"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "How did they understand the signs of priority, urgency"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To evaluate candidate's ability to think when caught off guard"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "Drill into more details on anything discussed"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Ask questions about alternative approaches/technology that were rejected, to uncover understanding of said alternate"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "If you could make a pull request to ",
+	          React.createElement(
+	            "strong",
+	            null,
+	            React.createElement(
+	              "em",
+	              null,
+	              "x"
+	            )
+	          ),
+	          " framework, what would it be and why"
+	        )
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "To Evaluate what kinds of questions they might ask about the company"
+	      ),
+	      React.createElement(
+	        "ol",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          "Did they ask anything about the potential culture fit?"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Did they ask any meaningful questions about funding or direction?"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Did they ask about promotions and bonuses?"
+	        )
+	      )
 	    );
 	  }
 	});
@@ -43331,7 +43607,7 @@
 	      "answerText": '',
 	      "status": ''
 	    };
-	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleChange = _this.handleChange.bind(_this); //controls context of handleChange
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    return _this;
 	  }
