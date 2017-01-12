@@ -1,14 +1,14 @@
 /**
  * Created by jmichelin on 12/28/16.
  */
-var React = require('react');
+import React from 'react';
 
-var UpdateInterviewQuestions = React.createClass({
-  render: function() {
+class UpdateInterviewQuestions extends React.Component {
+  render() {
     return (
       <div>Update Interview Question Here</div>
     )
   }
-});
+}
 
-module.exports = UpdateInterviewQuestions;
+export default UpdateInterviewQuestions

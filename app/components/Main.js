@@ -1,10 +1,11 @@
 /**
  * Created by jmichelin on 12/28/16.
  */
-var React = require('react');
+import React from 'react';
 
-var Main = React.createClass({
-  render: function () {
+
+class Main extends React.Component {
+  render() {
     return (
       <div className="main-container">
         <nav className="navbar navbar-default" role="navigation">
@@ -24,6 +25,6 @@ var Main = React.createClass({
       </div>
     )
   }
-});
+}
 
-module.exports = Main;
+export default Main

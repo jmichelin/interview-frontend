@@ -1,10 +1,10 @@
 /**
  * Created by jmichelin on 12/28/16.
  */
-var React = require('react');
+import React from 'react';
 
-var Home = React.createClass({
-  render: function() {
+class Home extends React.Component {
+  render() {
     return (
       <div className="container">
         <h2 className="text-center">Goals of the Interview</h2>
@@ -73,6 +73,6 @@ var Home = React.createClass({
       </div>
     )
   }
-})
+}
 
-module.exports = Home;
+export default Home

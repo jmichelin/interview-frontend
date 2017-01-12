@@ -24140,58 +24140,85 @@
 
 	"use strict";
 
-	/**
-	 * Created by jmichelin on 12/28/16.
-	 */
-	var React = __webpack_require__(1);
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	var Main = React.createClass({
-	  displayName: "Main",
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      { className: "main-container" },
-	      React.createElement(
-	        "nav",
-	        { className: "navbar navbar-default", role: "navigation" },
-	        React.createElement(
-	          "div",
-	          { className: "col-sm-7 col-sm-offset-2", style: { marginTop: 15 } },
-	          React.createElement(
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by jmichelin on 12/28/16.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var Main = function (_React$Component) {
+	  _inherits(Main, _React$Component);
+
+	  function Main() {
+	    _classCallCheck(this, Main);
+
+	    return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
+	  }
+
+	  _createClass(Main, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "main-container" },
+	        _react2.default.createElement(
+	          "nav",
+	          { className: "navbar navbar-default", role: "navigation" },
+	          _react2.default.createElement(
 	            "div",
-	            { className: "navbar-header" },
-	            "MENU",
-	            React.createElement(
+	            { className: "col-sm-7 col-sm-offset-2", style: { marginTop: 15 } },
+	            _react2.default.createElement(
 	              "div",
-	              { className: "navbar", id: "navbar-1" },
-	              React.createElement(
-	                "ul",
-	                { className: "nav navbar-nav" },
-	                React.createElement(
-	                  "li",
-	                  null,
-	                  React.createElement(
-	                    "a",
-	                    { href: "#/interviewQuestionList/active" },
-	                    "Interview Question List"
+	              { className: "navbar-header" },
+	              "MENU",
+	              _react2.default.createElement(
+	                "div",
+	                { className: "navbar", id: "navbar-1" },
+	                _react2.default.createElement(
+	                  "ul",
+	                  { className: "nav navbar-nav" },
+	                  _react2.default.createElement(
+	                    "li",
+	                    null,
+	                    _react2.default.createElement(
+	                      "a",
+	                      { href: "#/interviewQuestionList/active" },
+	                      "Interview Question List"
+	                    )
 	                  )
 	                )
 	              )
 	            )
 	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "container" },
+	          this.props.children
 	        )
-	      ),
-	      React.createElement(
-	        "div",
-	        { className: "container" },
-	        this.props.children
-	      )
-	    );
-	  }
-	});
+	      );
+	    }
+	  }]);
 
-	module.exports = Main;
+	  return Main;
+	}(_react2.default.Component);
+
+	exports.default = Main;
 
 /***/ },
 /* 208 */
@@ -24199,300 +24226,327 @@
 
 	"use strict";
 
-	/**
-	 * Created by jmichelin on 12/28/16.
-	 */
-	var React = __webpack_require__(1);
-
-	var Home = React.createClass({
-	  displayName: "Home",
-
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      { className: "container" },
-	      React.createElement(
-	        "h2",
-	        { className: "text-center" },
-	        "Goals of the Interview"
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's awareness of self contribution"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "What they did"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Why they did it"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "How that impacted the team"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "What effect that had on the final deliverable"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's actual contribution"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "Diagram a rough overview of the project, and emphasis own contribution to it"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "What technology decisions the they made and why"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "What impact would the product have had if candidate was absent or off-course"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's reasons for making certain decisions"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "What alternative approaches were considered and how they were unsuitable"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "What challenges were encountered and overcome, or avoided by changing direction"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's coding maturity/comfort "
-	      ),
-	      React.createElement(
-	        "em",
-	        null,
-	        "Are they JR, are they SR, always be looking for these in every answer"
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "Nervous Tells"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they ask for guidance on best practices, or just do them"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they answer the question, or add requirements"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they just start coding, or do they visualize first, pseudocode, etc. before solving"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they ask clarifying questions or just jump in"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they communicate using proper terminology (stack, queue, hash, instead of object/array/etc.)"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they write on the board what they are communicating or thinking"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they come across too academic"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they answer too detailed?"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Do they lack detail when it was warranted?"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's thought process"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "Communicates adequately"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Engages while thinking"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Attempts to understand the requirements"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Logical, methodical, clear, best practices"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Simulates logic correctly"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Edge cases"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Debugs"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's leadership maturity"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "How did they help a team member in distress"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "How did they contribute to the growth of others"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "How did they encourage a struggling team member"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "How did they stay the course"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "How did they understand the signs of priority, urgency"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To evaluate candidate's ability to think when caught off guard"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "Drill into more details on anything discussed"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Ask questions about alternative approaches/technology that were rejected, to uncover understanding of said alternate"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "If you could make a pull request to ",
-	          React.createElement(
-	            "strong",
-	            null,
-	            React.createElement(
-	              "em",
-	              null,
-	              "x"
-	            )
-	          ),
-	          " framework, what would it be and why"
-	        )
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "To Evaluate what kinds of questions they might ask about the company"
-	      ),
-	      React.createElement(
-	        "ol",
-	        null,
-	        React.createElement(
-	          "li",
-	          null,
-	          "Did they ask anything about the potential culture fit?"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Did they ask any meaningful questions about funding or direction?"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Did they ask about promotions and bonuses?"
-	        )
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = Home;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by jmichelin on 12/28/16.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var Home = function (_React$Component) {
+	  _inherits(Home, _React$Component);
+
+	  function Home() {
+	    _classCallCheck(this, Home);
+
+	    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+	  }
+
+	  _createClass(Home, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "container" },
+	        _react2.default.createElement(
+	          "h2",
+	          { className: "text-center" },
+	          "Goals of the Interview"
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's awareness of self contribution"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "What they did"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Why they did it"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "How that impacted the team"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "What effect that had on the final deliverable"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's actual contribution"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Diagram a rough overview of the project, and emphasis own contribution to it"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "What technology decisions the they made and why"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "What impact would the product have had if candidate was absent or off-course"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's reasons for making certain decisions"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "What alternative approaches were considered and how they were unsuitable"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "What challenges were encountered and overcome, or avoided by changing direction"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's coding maturity/comfort "
+	        ),
+	        _react2.default.createElement(
+	          "em",
+	          null,
+	          "Are they JR, are they SR, always be looking for these in every answer"
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "Nervous Tells"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they ask for guidance on best practices, or just do them"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they answer the question, or add requirements"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they just start coding, or do they visualize first, pseudocode, etc. before solving"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they ask clarifying questions or just jump in"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they communicate using proper terminology (stack, queue, hash, instead of object/array/etc.)"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they write on the board what they are communicating or thinking"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they come across too academic"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they answer too detailed?"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Do they lack detail when it was warranted?"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's thought process"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Communicates adequately"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Engages while thinking"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Attempts to understand the requirements"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Logical, methodical, clear, best practices"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Simulates logic correctly"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Edge cases"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Debugs"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's leadership maturity"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "How did they help a team member in distress"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "How did they contribute to the growth of others"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "How did they encourage a struggling team member"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "How did they stay the course"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "How did they understand the signs of priority, urgency"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To evaluate candidate's ability to think when caught off guard"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Drill into more details on anything discussed"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Ask questions about alternative approaches/technology that were rejected, to uncover understanding of said alternate"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "If you could make a pull request to ",
+	            _react2.default.createElement(
+	              "strong",
+	              null,
+	              _react2.default.createElement(
+	                "em",
+	                null,
+	                "x"
+	              )
+	            ),
+	            " framework, what would it be and why"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "h4",
+	          null,
+	          "To Evaluate what kinds of questions they might ask about the company"
+	        ),
+	        _react2.default.createElement(
+	          "ol",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Did they ask anything about the potential culture fit?"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Did they ask any meaningful questions about funding or direction?"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Did they ask about promotions and bonuses?"
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Home;
+	}(_react2.default.Component);
+
+	exports.default = Home;
 
 /***/ },
 /* 209 */
@@ -43743,24 +43797,51 @@
 
 	'use strict';
 
-	/**
-	 * Created by jmichelin on 12/28/16.
-	 */
-	var React = __webpack_require__(1);
-
-	var UpdateInterviewQuestions = React.createClass({
-	  displayName: 'UpdateInterviewQuestions',
-
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'Update Interview Question Here'
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = UpdateInterviewQuestions;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by jmichelin on 12/28/16.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var UpdateInterviewQuestions = function (_React$Component) {
+	  _inherits(UpdateInterviewQuestions, _React$Component);
+
+	  function UpdateInterviewQuestions() {
+	    _classCallCheck(this, UpdateInterviewQuestions);
+
+	    return _possibleConstructorReturn(this, (UpdateInterviewQuestions.__proto__ || Object.getPrototypeOf(UpdateInterviewQuestions)).apply(this, arguments));
+	  }
+
+	  _createClass(UpdateInterviewQuestions, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Update Interview Question Here'
+	      );
+	    }
+	  }]);
+
+	  return UpdateInterviewQuestions;
+	}(_react2.default.Component);
+
+	exports.default = UpdateInterviewQuestions;
 
 /***/ }
 /******/ ]);

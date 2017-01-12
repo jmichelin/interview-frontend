@@ -1,14 +1,14 @@
 /**
  * Created by jmichelin on 12/28/16.
  */
-var React = require('react');
+import React from 'react';
 
-var ListInterviews = React.createClass({
-  render: function() {
+class ListInterviews extends React.Component {
+  render() {
     return (
       <div>Create Interview Here</div>
     )
   }
-});
+}
 
-module.exports = ListInterviews;
+export default ListInterviews
