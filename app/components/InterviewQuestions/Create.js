@@ -48,8 +48,8 @@ class CreateInterviewQuestions extends React.Component {
       mode: 'no-cors',
       body: JSON.stringify(data)
     })
-      .then(json)
       .then((response) => {
+        console.log('response.status ', response.status);
       if(response.ok){
         response.json().then((interviewQuestion)=>{
           console.log('interviewQuestion=>  ', interviewQuestion);
@@ -59,6 +59,9 @@ class CreateInterviewQuestions extends React.Component {
       }
       })
       .catch((e) => console.log('There has been a problem with your fetch operation: ' + e.message));
+      // this.setState(previousState => ({
+      //   interviewQuestionList: [...previousState.interviewQuestionList, data]
+      // }));
   }
 
   render() {

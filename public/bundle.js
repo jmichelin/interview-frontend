@@ -43568,7 +43568,7 @@
 	      }
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement('input', { style: { marginBottom: 10 }, type: 'text', onChange: this.filter.bind(this) }),
 	        interviewQuestionList.map(function (interviewQuestion) {
 	          return _react2.default.createElement(InterviewQuestion, { key: interviewQuestion._id, interview: interviewQuestion });
@@ -43580,40 +43580,82 @@
 	  return InterviewQuestionList;
 	}(_react2.default.Component);
 
+	// const deleteQuestion
+
 	var InterviewQuestion = function InterviewQuestion(props) {
-	  console.log('props', props);
-	  var header = '(' + props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
+	  //console.log('props', props);
+	  var header = '(' + props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + 'mins to answer';
+	  var btnId = 'btn-' + props.interview._id;
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'panel panel-primary' },
 	    _react2.default.createElement(
-	      _reactBootstrap.Accordion,
-	      null,
+	      'div',
+	      { className: 'panel-heading clearfix', key: props.interview._id },
+	      _react2.default.createElement(
+	        'h4',
+	        { className: 'panel-title pull-left' },
+	        header
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'input-group-btn' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'btn btn-primary pull-right',
+	            onClick: function onClick() {
+	              //console.log(props.interview._id);
+	              $('#' + props.interview._id).toggleClass("in");
+	              $('#btn-' + props.interview._id).toggleClass("glyphicon-triangle-bottom glyphicon-triangle-top");
+	            } },
+	          _react2.default.createElement('i', { id: btnId, className: 'glyphicon glyphicon-triangle-bottom' })
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { id: props.interview._id, className: 'panel-body collapse' },
 	      _react2.default.createElement(
 	        _reactBootstrap.Panel,
-	        { header: header, bsStyle: 'primary', eventKey: props.interview._id },
+	        { header: 'Question', bsStyle: 'danger' },
 	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          { header: 'Question', bsStyle: 'danger' },
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            props.interview.questionText
-	          )
-	        ),
+	          'p',
+	          null,
+	          props.interview.questionText
+	        )
+	      ),
+	      _react2.default.createElement(
+	        _reactBootstrap.Panel,
+	        { header: 'Answer', bsStyle: 'success' },
 	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          { header: 'Answer', bsStyle: 'success' },
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            props.interview.answerText
-	          )
+	          'p',
+	          null,
+	          props.interview.answerText
 	        )
 	      )
 	    )
 	  );
 	};
+
+	// const InterviewQuestion = (props) => {
+	//   console.log('props', props);
+	//   let header = '('+props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + 'mins to answer';
+	//   return (
+	//   <div className="panel panel-primary">
+	//     <Accordion>
+	//       <Panel header={header} bsStyle="primary" eventKey={props.interview._id}>
+	//         <Panel header="Question" bsStyle="danger">
+	//           <p>{props.interview.questionText}</p>
+	//         </Panel>
+	//         <Panel header="Answer" bsStyle="success">
+	//           <p>{props.interview.answerText}</p>
+	//         </Panel>
+	//       </Panel>
+	//     </Accordion>
+	//   </div>
+	//   )
+	// }
+
 
 	exports.default = InterviewQuestionList;
 
@@ -43697,7 +43739,8 @@
 	        },
 	        mode: 'no-cors',
 	        body: JSON.stringify(data)
-	      }).then(json).then(function (response) {
+	      }).then(function (response) {
+	        console.log('response.status ', response.status);
 	        if (response.ok) {
 	          response.json().then(function (interviewQuestion) {
 	            console.log('interviewQuestion=>  ', interviewQuestion);
@@ -43708,6 +43751,9 @@
 	      }).catch(function (e) {
 	        return console.log('There has been a problem with your fetch operation: ' + e.message);
 	      });
+	      // this.setState(previousState => ({
+	      //   interviewQuestionList: [...previousState.interviewQuestionList, data]
+	      // }));
 	    }
 	  }, {
 	    key: 'render',
