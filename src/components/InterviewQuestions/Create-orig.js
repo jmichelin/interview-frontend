@@ -19,6 +19,31 @@ class CreateInterviewQuestions extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount() {
+    console.log('InterviewQuestions/Create.js => Will Mount')
+  }
+
+  componentDidMount() {
+    console.log('InterviewQuestions/Create.js => Did Mount');
+  }
+
+  componentWillReceiveProps() {
+    console.log('InterviewQuestions/Create.js => Will Receive Props');
+  }
+
+  shouldComponentUpdate() {
+    console.log('InterviewQuestions/Create.js => Should Component Update');
+    return true;
+  }
+
+  componentWillUpdate() {
+    console.log('InterviewQuestions/Create.js => Will Update');
+  }
+
+  componentDidUpdate() {
+    console.log('InterviewQuestions/Create.js => Did Update');
+  }
+
   handleChange(event) {
     console.log('InterviewQuestions/Create.js ---> event.target.name => ', event.target.name);
     let keyName = event.target.name;
@@ -27,46 +52,50 @@ class CreateInterviewQuestions extends React.Component {
     console.log('InterviewQuestions/Create.js ---> newState => ', newState);
     //this.setState({keyName: event.target.value});
     this.setState(newState);
+    console.log('this.state=> ', this.state);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    let data = {
-      genre: this.state.genre,
-      title: this.state.title,
-      timeToAnswer: this.state.timeToAnswer,
-      questionText: this.state.questionText,
-      answerText: this.state.answerText,
-      status: "active"
-    };
-    console.log('+++ handleSubmit data => ', data);
-    fetch('https://infinite-waters-52055.herokuapp.com/interview/question/add', {
-      method: 'post',
-      headers: {
-      "Content-Type": "application/json; charset=UTF-8;"
-    },
-      mode: 'no-cors',
-      body: JSON.stringify(data)
-    })
-      .then((response) => {
-        console.log('response.status ', response.status);
-      if(response.ok){
-        response.json().then((interviewQuestion)=>{
-          console.log('interviewQuestion=>  ', interviewQuestion);
-        })
-      } else {
-        console.log('response not okay: ', response);
-      }
-      })
-      .catch((e) => console.log('There has been a problem with your fetch operation: ' + e.message));
-      // this.setState(previousState => ({
-      //   interviewQuestionList: [...previousState.interviewQuestionList, data]
-      // }));
-  }
+  {/*handleSubmit(event) {*/}
+    {/*event.preventDefault();*/}
+    {/*let data = {*/}
+      {/*genre: this.state.genre,*/}
+      {/*title: this.state.title,*/}
+      {/*timeToAnswer: this.state.timeToAnswer,*/}
+      {/*questionText: this.state.questionText,*/}
+      {/*answerText: this.state.answerText,*/}
+      {/*status: "active"*/}
+    {/*};*/}
+    {/*console.log('+++ handleSubmit data => ', data);*/}
+    {/*fetch('https://infinite-waters-52055.herokuapp.com/interview/question/add', {*/}
+      {/*method: 'post',*/}
+      {/*headers: {*/}
+      {/*"Content-Type": "application/json; charset=UTF-8;"*/}
+    {/*},*/}
+      {/*mode: 'no-cors',*/}
+      {/*body: JSON.stringify(data)*/}
+    {/*})*/}
+      {/*.then((response) => {*/}
+        {/*console.log('response.status ', response.status);*/}
+      {/*if(response.ok){*/}
+        {/*response.json().then((interviewQuestion)=>{*/}
+          {/*console.log('interviewQuestion=>  ', interviewQuestion);*/}
+        {/*})*/}
+      {/*} else {*/}
+  //       console.log('response not okay: ', response);
+  //     }
+  //       console.log('this.state', this.state);
+  //       console.log('this.props', this.props);
+  //     //this.setState(data);
+  //     })
+  //     .catch((e) => console.log('There has been a problem with your fetch operation: ' + e.message));
+  //     // this.setState(previousState => ({
+  //     //   interviewQuestionList: [...previousState.interviewQuestionList, data]
+  //     // }));
+  // }
 
   render() {
     return (
-      <div>Create Interview Question Here
+      <div className="App-main">Create Interview Question Here
         <form onSubmit={this.handleSubmit} method="post">
           <div className="input-group col-md-12">
             <span className="input-group-addon primary" style={{width:163}} id="genre">Genre</span>
@@ -99,5 +128,9 @@ class CreateInterviewQuestions extends React.Component {
     )
   }
 }
+
+// CreateInterviewQuestions.propTypes = {
+//   addQuestion: React.PropTypes.func.isRequired,
+// };
 
 export default CreateInterviewQuestions

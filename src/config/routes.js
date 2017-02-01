@@ -1,14 +1,15 @@
 /**
- * Created by jmichelin on 12/28/16.
+ * Created by jmichelin on 1/17/17.
  */
 import React from 'react';
-import Main from '../components/Main';
+import { Route, IndexRoute } from 'react-router';
+import App from '../App';
 import Home from '../components/Home';
+//import Main from '../components/Main';
 import Interview from '../components/InterviewList';
-import { Router, Route, IndexRoute } from 'react-router';
 
 module.exports = (
-  <Route path="/" component={Main}>
+  <Route path="/" component={App}>
     <Route path="interviewQuestionList" component={Interview} />
     <Route path="interviewQuestionList/:status" component={Interview} />
     <IndexRoute component={Home} />

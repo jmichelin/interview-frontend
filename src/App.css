@@ -1,0 +1,79 @@
+.App {
+  /*text-align: center;*/
+  background-color: #3D3935;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-logo-text {
+  height: 80px;
+  margin-left: 15px;
+}
+
+.App-tag-line {
+  margin-left: 95px;
+}
+
+.App-header {
+  background-color: #3D3935;
+  height: 300px;
+  padding: 20px;
+  color: white;
+}
+
+.App-main {
+  background-color: #3D3935;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/*
+Boot Strap Overrides
+ */
+
+.panel {
+  border: 0;
+}
+/*
+Input Groups
+ */
+.input-group-addon.primary {
+  color: rgb(255, 255, 255);
+  background-color: rgb(50, 118, 177);
+  border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+  color: rgb(255, 255, 255);
+  background-color: rgb(92, 184, 92);
+  border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+  color: rgb(255, 255, 255);
+  background-color: rgb(57, 179, 215);
+  border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+  color: rgb(255, 255, 255);
+  background-color: rgb(240, 173, 78);
+  border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+  color: rgb(255, 255, 255);
+  background-color: rgb(217, 83, 79);
+  border-color: rgb(212, 63, 58);
+}
+.panel-group {
+  margin-bottom: 0px;
+}
