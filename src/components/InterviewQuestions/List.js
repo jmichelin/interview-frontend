@@ -93,7 +93,7 @@ const InterviewQuestion = (props) => {
   //handleRemove
 
   //console.log('props', props);
-  let header = '('+props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + 'mins to answer';
+  let header = '('+props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
   let btnId = 'btn-'+props.interview._id;
   return (
     <div className="panel panel-primary">
