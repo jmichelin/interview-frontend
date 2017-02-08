@@ -10,12 +10,12 @@ class Main extends React.Component {
   render() {
     return (
     <div className="App container-fluid">
-      <div className="App-header">
+      <div className="App-header container-fluid">
         <img src={icon} className="App-logo" alt="logo" />
         <img src={hrText} className="App-logo-text" alt="Hack Reactor" />
         <h2>HR Interview Manager</h2>
         <nav className="navbar navbar-default" role="navigation">
-          <div className="col-sm-7" style={{marginTop: 15}}>
+          <div className="col-sm-7">
             <div className="navbar-header">
               <div className="navbar" id="navbar-1">
                 <ul className="nav navbar-nav">
