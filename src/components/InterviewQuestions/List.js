@@ -2,27 +2,71 @@
  * Created by jmichelin on 12/28/16.
  */
 import React from 'react';
-import { Panel } from 'react-bootstrap'
-import $ from 'jquery'
+import {Panel} from 'react-bootstrap';
+import $ from 'jquery';
+
+
+/*
+ import InlineEdit from 'react-edit-inline';
+ Required props
+ text:string initial text
+ paramName:string name of the parameter to be returned to change function
+ change:function function to call when new text is changed and validated, it will receive {paramName: value}
+ Optional props
+ className:string CSS class name
+ activeClassName:string CSS class replacement for when in edit mode
+ validate:function boolean function for custom validation, using this overrides the two props below
+ minLength:number minimum text length, default 1
+ maxLength:number maximum text length, default 256
+ editingElement:string element name to use when in edit mode (DOM must have value property) default input
+ staticElement:string element name for displaying data default span
+ editing:boolean If true, element will be in edit mode
+ tabIndex:number tab index used for focusing with TAB key default 0
+ stopPropagation:boolean If true, the event onClick will not be further propagated.
+ */
 
 class InterviewQuestionList extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       open: false
     };
     this.handleRemoveQuestion = this.handleRemoveQuestion.bind(this);
+    this.handleUpdateQuestion = this.handleUpdateQuestion.bind(this);
   }
 
   shouldComponentUpdate() {
     //console.log('InterviewQuestions/List.js => Should Component Update');
     return true;
   }
+
+  componentDidMount() {
+    console.log('this.handleUpdateQuestion', this.handleUpdateQuestion);
+    console.log('InterviewQuestions/List.js => Did Mount');
+    let that = this;
+    $('span').bind('dblclick', function () {
+      $(this).attr('contentEditable', true);
+    }).blur(
+      function () {
+        let interviewQuestionInfo = $(this);
+        console.log('$(this)=> ', $(this));
+        console.log('that.handleUpdateQuestion', that.handleUpdateQuestion);
+        console.log('field to update=> ', interviewQuestionInfo[0].id);
+        console.log('value to use for update=> ', interviewQuestionInfo[0].innerText);
+        console.log('objectid to update=> ', interviewQuestionInfo[0].dataset.objectid);
+        let updateObject = {};
+        let field = interviewQuestionInfo[0].id;
+        let valueToUpdate = interviewQuestionInfo[0].innerText;
+        let objectId = interviewQuestionInfo[0].dataset.objectid;
+        updateObject.id = objectId;
+        updateObject[field] =  valueToUpdate;
+        that.handleUpdateQuestion(updateObject);
+        $(this).attr('contentEditable', false);
+      });
+  }
+
   /*
 
-   componentDidMount() {
-   console.log('InterviewQuestions/List.js => Did Mount');
-   }
 
    componentWillReceiveProps() {
    console.log('InterviewQuestions/List.js => Will Receive Props');
@@ -42,11 +86,24 @@ class InterviewQuestionList extends React.Component {
   //   console.log('InterviewQuestions/List.js => Will Mount')
   // }
 
-  filter (e) {
+  handleUpdateQuestion(questionToUpdate) {
+    // data = { description: "New validated text comes here" }
+    // Update your model from here
+    //console.log('props', props);
+    console.log('questionToUpdate ', questionToUpdate);
+    this.props.updateQuestion(questionToUpdate);
+    //this.setState({...data})
+  }
+
+  customValidateText(text) {
+    return (text.length > 0 && text.length < 64);
+  }
+
+  filter(e) {
     this.setState({filter: e.target.value})
   }
 
-  handleRemoveQuestion (event) {
+  handleRemoveQuestion(event) {
     event.preventDefault();
     let questionID = event.target.value;
     console.log('value of questionID in List.js => ', questionID);
@@ -54,31 +111,35 @@ class InterviewQuestionList extends React.Component {
   }
 
 
-  render () {
+  render() {
     //console.log('List', this.props.interviewQuestionList);
 
     let interviewQuestionList = this.props.interviewQuestionList || [];
 
-    if(this.state.filter) {
+    if (this.state.filter) {
       interviewQuestionList = interviewQuestionList.filter(interviewQuestion => {
         //console.log('interviewQuestion', interviewQuestion);
         return interviewQuestion.genre.toLowerCase()
-          .includes(this.state.filter.toLowerCase())})
+          .includes(this.state.filter.toLowerCase())
+      })
     }
 
     let interviewQuestions = interviewQuestionList.map((interviewQuestion, index) => {
-        let curKey = interviewQuestion._id||index;
-        return <InterviewQuestion interview={interviewQuestion} key={curKey} removeQuestion={this.handleRemoveQuestion.bind(this)}/>
+      let curKey = interviewQuestion._id || index;
+      return <InterviewQuestion interview={interviewQuestion} key={curKey}
+                                removeQuestion={this.handleRemoveQuestion.bind(this)}
+                                updateQuestion={this.props.updateQuestion}
+                                customValidateText={this.customValidateText.bind(this)}/>
     });
 
     //console.log('interviewQuestions length and value => \n', interviewQuestions.length, '\n', interviewQuestions);
 
     return (
-
       <div>
         <div className="form-group">
           <label>Filter questions</label>
-          <input className="form-control" style={{marginBottom: 10}} type="text" placeholder="Start typing to filter" onChange={this.filter.bind(this)}/>
+          <input className="form-control" style={{marginBottom: 10}} type="text" placeholder="Start typing to filter"
+                 onChange={this.filter.bind(this)}/>
         </div>
         <div>{interviewQuestions}</div>
       </div>
@@ -93,12 +154,13 @@ const InterviewQuestion = (props) => {
   //handleRemove
 
   //console.log('props', props);
-  let header = '('+props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
-  let btnId = 'btn-'+props.interview._id;
+  let header = props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
+  let btnId = 'btn-' + props.interview._id;
   return (
     <div className="panel panel-primary">
       <div className="panel-heading clearfix" key={props.interview._id}>
-        <h4 className="panel-title pull-left">{header}</h4>
+        <h4 className="panel-title pull-left">(<span id="genre" data-objectid={props.interview._id}>{props.interview.genre}</span>) {header}
+        </h4>
         <div className="input-group-btn">
           <button className="btn btn-primary pull-right glyphicon glyphicon-remove"
                   onClick={props.removeQuestion}
@@ -109,8 +171,8 @@ const InterviewQuestion = (props) => {
           <button id={btnId} className="btn btn-primary pull-right glyphicon glyphicon-triangle-bottom"
                   onClick={() => {
                     //console.log(props.interview._id);
-                    $('#'+props.interview._id).toggleClass("in")
-                    $('#btn-'+props.interview._id).toggleClass("glyphicon-triangle-bottom glyphicon-triangle-top")
+                    $('#' + props.interview._id).toggleClass("in")
+                    $('#btn-' + props.interview._id).toggleClass("glyphicon-triangle-bottom glyphicon-triangle-top")
                   }}>
 
           </button>
@@ -128,25 +190,6 @@ const InterviewQuestion = (props) => {
   )
 }
 
-
-// const InterviewQuestion = (props) => {
-//   //console.log('props.interview._id', props.interview._id);
-//   let header = '('+props.interview.genre + ') ' + props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer ...or else';
-//   return (
-//   <div className="panel panel-primary">
-//     <Accordion>
-//       <Panel header={header} bsStyle="primary" eventKey={props.interview._id}>
-//         <Panel header="Question" bsStyle="danger">
-//           <p>{props.interview.questionText}</p>
-//         </Panel>
-//         <Panel header="Answer" bsStyle="success">
-//           <p>{props.interview.answerText}</p>
-//         </Panel>
-//       </Panel>
-//     </Accordion>
-//   </div>
-//   )
-// }
 
 InterviewQuestionList.propTypes = {
   status: React.PropTypes.string.isRequired,

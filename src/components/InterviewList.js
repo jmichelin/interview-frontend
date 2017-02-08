@@ -7,6 +7,7 @@ import InterviewQuestionList from './InterviewQuestions/List'
 import InterviewQuestionCreate from './InterviewQuestions/Create'
 import InterviewQuestionUpdate from './InterviewQuestions/Update'
 import axios from 'axios'
+import Loader from 'react-loader'
 
 class Interview extends React.Component {
   constructor() {
@@ -30,10 +31,12 @@ class Interview extends React.Component {
           "status": ''
         }
       ],
-      open: false
+      open: false,
+      questionsLoaded: false
     }
     this.handleAddQuestion = this.handleAddQuestion.bind(this);
     this.handleRemoveQuestion = this.handleRemoveQuestion.bind(this);
+    this.handleUpdateQuestion = this.handleUpdateQuestion.bind(this);
   }
 
   componentDidMount() {
@@ -42,8 +45,10 @@ class Interview extends React.Component {
     let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list/'+status;
     axios.get(fetchUrl)
       .then((returnedInterviewQuestionList: []) => {
-          let interviewQuestionList = returnedInterviewQuestionList.data;
-          return this.setState({interviewQuestionList})
+          return this.setState({
+            questionsLoaded: true,
+            interviewQuestionList: returnedInterviewQuestionList.data
+          })
         }
       );
 
@@ -130,33 +135,77 @@ class Interview extends React.Component {
     })
       .then((response) => {
         //console.log('handleAddQuestion axios.then this.state.interviewQuestionList -> ', this.state.interviewQuestionList);
-        console.log('line 133: interviewList->handleRemoveQuestion -> response.data => ', response.data);
-        console.log('this.state.interviewQuestionList=> ', this.state.interviewQuestionList);
+        //console.log('line 133: interviewList->handleRemoveQuestion -> response.data => ', response.data);
+        //console.log('this.state.interviewQuestionList=> ', this.state.interviewQuestionList);
         let removedInterviewQuestionIndex = this.state.interviewQuestionList.findIndex(function(element){
           //console.log(element._id,' = ', questionID);
           return element._id === questionID;
         });
         this.state.interviewQuestionList.splice(removedInterviewQuestionIndex, 1);
         let newInterviewQuestionList = this.state.interviewQuestionList;
-        console.log('newInterviewQuestionList => ', newInterviewQuestionList);
-        console.log('this.state.interviewQuestionList=> ', this.state.interviewQuestionList);
+        //console.log('newInterviewQuestionList => ', newInterviewQuestionList);
+        //console.log('this.state.interviewQuestionList=> ', this.state.interviewQuestionList);
         //TODO remove from state
         this.setState({
-            interviewQuestionList: newInterviewQuestionList
+          interviewQuestionList: newInterviewQuestionList
           });
       })
       .catch((error) => {
         console.error('interviewList - error => ', error);
       });
-
   }
 
+  handleUpdateQuestion(questionToUpdate) {
+    event.preventDefault();
+    console.log('interviewList questionToUpdate=> ', questionToUpdate);
+    //TODO axios update goes here.
+    let postUrl = 'https://infinite-waters-52055.herokuapp.com/interview/question/update';
+    //let postUrl = 'http://localhost:7337/interview/question/update';
+    axios({
+      method: 'post',
+      url: postUrl,
+      data: questionToUpdate
+    })
+      .then((response) => {
+        //todo find interview question in state array
+        let updatedInterviewQuestionIndex = this.state.interviewQuestionList.findIndex(function(element){
+          //console.log(element._id,' = ', questionID);
+          return element._id === questionToUpdate.id;
+        });
+        console.log('updatedInterviewQuestionIndex=> ', updatedInterviewQuestionIndex);
+        console.log('thisstate.interviewQuestionList[updatedInterviewQuestionIndex]', this.state.interviewQuestionList[updatedInterviewQuestionIndex]);
+        //todo update value in state array object
+      })
+      .catch((error) => {
+        console.error('interviewList - error => ', error);
+      });
+  }
 
   render() {
     // like the profile page in the tutorial
     //console.log('+++InterviewList.js --> this.props => ', this.props)
+    let options = {
+      lines: 17,
+      length: 56,
+      width: 10,
+      radius: 0,
+      scale: 1.00,
+      corners: 0,
+      color: '#000',
+      opacity: 0.25,
+      rotate: 0,
+      direction: 1,
+      speed: .5,
+      trail: 100,
+      fps: 20,
+      zIndex: 2e9,
+      top: '50%',
+      left: '50%',
+      shadow: true,
+      hwaccel: false,
+      position: 'absolute'
+    };
     return (
-
       <div>
         <div className="row">
           <div className="col-md-12">
@@ -174,11 +223,14 @@ class Interview extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-12">Viewing <em>{this.props.params.status}</em> interview questions.
-            <InterviewQuestionList
+            <Loader loaded={this.state.questionsLoaded} options={options}>
+              <InterviewQuestionList
               status={this.props.params.status}
               interviewQuestionList={this.state.interviewQuestionList}
               removeQuestion={this.handleRemoveQuestion}
-            />
+              updateQuestion={this.handleUpdateQuestion}
+              />
+            </Loader>
           </div>
         </div>
       </div>

@@ -1,6 +1,11 @@
+body {
+  background: #3D3935;
+  height: 100%;
+}
 .App {
   /*text-align: center;*/
   background-color: #3D3935;
+  min-height: auto;
 }
 
 .App-logo {
@@ -146,4 +151,27 @@ Input Groups
 }
 .panel-group {
   margin-bottom: 0px;
+}
+
+/*
+Loader
+ */
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  z-index: 9999;
+}
+
+/*
+Inline Editing
+ */
+
+.editing {
+  background: transparent;
+  //width: auto;
+  //min-width: 250px;
 }
