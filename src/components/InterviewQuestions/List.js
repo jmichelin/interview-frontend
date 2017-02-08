@@ -154,12 +154,15 @@ const InterviewQuestion = (props) => {
   //handleRemove
 
   //console.log('props', props);
-  let header = props.interview.title + ' - ' + props.interview.timeToAnswer + ' mins to answer';
+  let header =' mins to answer';
   let btnId = 'btn-' + props.interview._id;
   return (
     <div className="panel panel-primary">
       <div className="panel-heading clearfix" key={props.interview._id}>
-        <h4 className="panel-title pull-left">(<span id="genre" data-objectid={props.interview._id}>{props.interview.genre}</span>) {header}
+        <h4 className="panel-title pull-left">
+          (<span id="genre" data-objectid={props.interview._id}> {props.interview.genre} </span>)
+          <span id="title" data-objectid={props.interview._id}> {props.interview.title} </span>
+          <span id="timeToAnswer" data-objectid={props.interview._id}>{props.interview.timeToAnswer}</span>{header}
         </h4>
         <div className="input-group-btn">
           <button className="btn btn-primary pull-right glyphicon glyphicon-remove"
@@ -180,10 +183,10 @@ const InterviewQuestion = (props) => {
       </div>
       <div id={props.interview._id} className="panel-body collapse">
         <Panel header="Question" bsStyle="danger">
-          <p>{props.interview.questionText}</p>
+          <span id="questionText" data-objectid={props.interview._id}>{props.interview.questionText}</span>
         </Panel>
         <Panel header="Answer" bsStyle="success">
-          <p>{props.interview.answerText}</p>
+          <span id="answerText" data-objectid={props.interview._id}>{props.interview.answerText}</span>
         </Panel>
       </div>
     </div>

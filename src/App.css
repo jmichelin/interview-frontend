@@ -104,9 +104,14 @@ Panels
   background: #e36937;
 }
 
-.panel-body > p {
+.panel-body > span {
   color: #3D3935;
 }
+
+.panel-group {
+  margin-bottom: 0px;
+}
+
 
 /*
 Buttons
@@ -148,9 +153,6 @@ Input Groups
   color: rgb(255, 255, 255);
   background-color: rgb(217, 83, 79);
   border-color: rgb(212, 63, 58);
-}
-.panel-group {
-  margin-bottom: 0px;
 }
 
 /*
