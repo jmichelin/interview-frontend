@@ -6,6 +6,7 @@ import {Panel} from 'react-bootstrap';
 import $ from 'jquery';
 
 
+
 /*
  import InlineEdit from 'react-edit-inline';
  Required props
