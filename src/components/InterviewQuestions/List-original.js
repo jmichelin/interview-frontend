@@ -7,15 +7,15 @@ import { Accordion, Panel } from 'react-bootstrap'
 
 class InterviewQuestionList extends React.Component {
   constructor () {
-    super()
+    super();
     this.state = {
       interviewQuestionList: []
     }
   }
 
   componentWillMount () {
-    console.log('InterviewQuestions/List.js => Will Mount')
-    let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list'
+    console.log('InterviewQuestions/List.js => Will Mount');
+    let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list';
     fetch(fetchUrl)
       .then(
         (response) => {
@@ -58,7 +58,7 @@ class InterviewQuestionList extends React.Component {
   }
 
   render () {
-    let interviewQuestionList = this.state.interviewQuestionList
+    let interviewQuestionList = this.state.interviewQuestionList;
     if(this.state.filter) {
       interviewQuestionList = interviewQuestionList.filter(interviewQuestion =>
         interviewQuestion.genre.toLowerCase()
@@ -127,7 +127,7 @@ const InterviewQuestion = (props) => {
     </Accordion>
   </div>
   )
-}
+};
 
 
 

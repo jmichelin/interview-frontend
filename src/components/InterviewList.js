@@ -33,7 +33,7 @@ class Interview extends React.Component {
       ],
       open: false,
       questionsLoaded: false
-    }
+    };
     this.handleAddQuestion = this.handleAddQuestion.bind(this);
     this.handleRemoveQuestion = this.handleRemoveQuestion.bind(this);
     this.handleUpdateQuestion = this.handleUpdateQuestion.bind(this);
@@ -41,8 +41,9 @@ class Interview extends React.Component {
 
   componentDidMount() {
     //console.log('InterviewList.js => Did Mount');
-    let status = this.props.params.status;
-    let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list/'+status;
+    let status = this.props.params.status || 'active';
+    //let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list/'+status;
+    let fetchUrl = 'http://127.0.0.1:7337/interview/questions/list/'+status;
     axios.get(fetchUrl)
       .then((returnedInterviewQuestionList: []) => {
           return this.setState({
@@ -85,8 +86,8 @@ class Interview extends React.Component {
   handleAddQuestion(question) {
     //console.log('handleAddQuestion this.state.interviewQuestionList -> ', this.state.interviewQuestionList);
     event.preventDefault();
-    let postUrl = 'https://infinite-waters-52055.herokuapp.com/interview/question/add';
-    //let postUrl = 'http://localhost:7337/interview/question/add';
+    //let postUrl = 'https://infinite-waters-52055.herokuapp.com/interview/question/add';
+    let postUrl = 'http://localhost:7337/interview/question/add';
     let data = question;
     //console.log('interviewList -> handleAddQuestion -> data => ', data);
     axios({

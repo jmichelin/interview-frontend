@@ -6,7 +6,7 @@ import React from 'react';
 
 class InterviewQuestionCreate extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
         "genre": '',
         "title": '',
