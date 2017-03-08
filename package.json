@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://immense-earth-35739.herokuapp.com/",
+  "engines": {
+    "node": "6.3.1"
+  },
   "devDependencies": {
     "cz-conventional-changelog": "1.2.0",
     "random-input-generator": "1.0.0",
