@@ -5,27 +5,6 @@ import React from 'react';
 import {Panel} from 'react-bootstrap';
 import $ from 'jquery';
 
-
-
-/*
- import InlineEdit from 'react-edit-inline';
- Required props
- text:string initial text
- paramName:string name of the parameter to be returned to change function
- change:function function to call when new text is changed and validated, it will receive {paramName: value}
- Optional props
- className:string CSS class name
- activeClassName:string CSS class replacement for when in edit mode
- validate:function boolean function for custom validation, using this overrides the two props below
- minLength:number minimum text length, default 1
- maxLength:number maximum text length, default 256
- editingElement:string element name to use when in edit mode (DOM must have value property) default input
- staticElement:string element name for displaying data default span
- editing:boolean If true, element will be in edit mode
- tabIndex:number tab index used for focusing with TAB key default 0
- stopPropagation:boolean If true, the event onClick will not be further propagated.
- */
-
 class InterviewQuestionList extends React.Component {
   constructor(props) {
     super(props);
@@ -42,19 +21,19 @@ class InterviewQuestionList extends React.Component {
   }
 
   componentDidMount() {
-    console.log('this.handleUpdateQuestion', this.handleUpdateQuestion);
-    console.log('InterviewQuestions/List.js => Did Mount');
+    // console.log('this.handleUpdateQuestion', this.handleUpdateQuestion);
+    // console.log('InterviewQuestions/List.js => Did Mount');
     let that = this;
     $('span').bind('dblclick', function () {
       $(this).attr('contentEditable', true);
     }).blur(
       function () {
         let interviewQuestionInfo = $(this);
-        console.log('$(this)=> ', $(this));
-        console.log('that.handleUpdateQuestion', that.handleUpdateQuestion);
-        console.log('field to update=> ', interviewQuestionInfo[0].id);
-        console.log('value to use for update=> ', interviewQuestionInfo[0].innerText);
-        console.log('objectid to update=> ', interviewQuestionInfo[0].dataset.objectid);
+        // console.log('$(this)=> ', $(this));
+        // console.log('that.handleUpdateQuestion', that.handleUpdateQuestion);
+        // console.log('field to update=> ', interviewQuestionInfo[0].id);
+        // console.log('value to use for update=> ', interviewQuestionInfo[0].innerText);
+        // console.log('objectid to update=> ', interviewQuestionInfo[0].dataset.objectid);
         let updateObject = {};
         let field = interviewQuestionInfo[0].id;
         let valueToUpdate = interviewQuestionInfo[0].innerText;
@@ -175,7 +154,7 @@ const InterviewQuestion = (props) => {
           <button id={btnId} className="btn btn-primary pull-right glyphicon glyphicon-triangle-bottom"
                   onClick={() => {
                     //console.log(props.interview._id);
-                    $('#' + props.interview._id).toggleClass("in")
+                    $('#' + props.interview._id).toggleClass("in");
                     $('#btn-' + props.interview._id).toggleClass("glyphicon-triangle-bottom glyphicon-triangle-top")
                   }}>
 
@@ -192,7 +171,7 @@ const InterviewQuestion = (props) => {
       </div>
     </div>
   )
-}
+};
 
 
 InterviewQuestionList.propTypes = {

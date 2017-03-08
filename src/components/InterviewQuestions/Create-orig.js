@@ -4,9 +4,11 @@
  */
 import React from 'react';
 
+var notused;
+
 class CreateInterviewQuestions extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
         "genre": '',
         "title": '',
@@ -93,7 +95,7 @@ class CreateInterviewQuestions extends React.Component {
   //     // }));
   // }
 
-  render() {
+  render(); {
     return (
       <div className="App-main">Create Interview Question Here
         <form onSubmit={this.handleSubmit} method="post">
