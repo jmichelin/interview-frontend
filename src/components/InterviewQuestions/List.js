@@ -4,12 +4,10 @@
 import React from 'react';
 import {Panel} from 'react-bootstrap';
 import $ from 'jquery';
-<<<<<<< HEAD
-=======
+
 // eslint-disable-next-line
-var InfiniteScroll = require('react-infinite-scroll')(React)
+const InfiniteScroll = require('react-infinite-scroll')(React)
 //import {Infinite} from 'react-infinite';
->>>>>>> api-play
 
 class InterviewQuestionList extends React.Component {
   constructor(props) {
