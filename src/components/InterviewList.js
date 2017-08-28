@@ -42,8 +42,8 @@ class Interview extends React.Component {
   componentDidMount() {
     //console.log('InterviewList.js => Did Mount');
     let status = this.props.params.status || 'active';
-    //let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list/'+status;
-    let fetchUrl = 'http://127.0.0.1:7337/interview/questions/list/'+status;
+    let fetchUrl = 'https://infinite-waters-52055.herokuapp.com/interview/questions/list/'+status;
+    //let fetchUrl = 'http://127.0.0.1:7337/interview/questions/list/'+status;
     axios.get(fetchUrl)
       .then((returnedInterviewQuestionList: []) => {
           return this.setState({
@@ -129,6 +129,7 @@ class Interview extends React.Component {
     //TODO remove question axios call
     let postUrl = 'https://infinite-waters-52055.herokuapp.com/interview/question/update';
     //let postUrl = 'http://localhost:7337/interview/question/update';
+    console.log('+++ filename: interviewList.js functionName: handleRemoveQuestion expected: object with id actual: ', question);
     axios({
       method: 'post',
       url: postUrl,

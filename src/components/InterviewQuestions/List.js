@@ -4,6 +4,12 @@
 import React from 'react';
 import {Panel} from 'react-bootstrap';
 import $ from 'jquery';
+<<<<<<< HEAD
+=======
+// eslint-disable-next-line
+var InfiniteScroll = require('react-infinite-scroll')(React)
+//import {Infinite} from 'react-infinite';
+>>>>>>> api-play
 
 class InterviewQuestionList extends React.Component {
   constructor(props) {
@@ -13,6 +19,7 @@ class InterviewQuestionList extends React.Component {
     };
     this.handleRemoveQuestion = this.handleRemoveQuestion.bind(this);
     this.handleUpdateQuestion = this.handleUpdateQuestion.bind(this);
+    this.loadMoreQuestions = this.loadMoreQuestions.bind(this);
   }
 
   shouldComponentUpdate() {
@@ -90,6 +97,11 @@ class InterviewQuestionList extends React.Component {
     this.props.removeQuestion(questionID);
   }
 
+  loadMoreQuestions() {
+    console.log('loading more');
+    return [this.props.interviewQuestionList,...this.props.interviewQuestionList]
+  }
+
 
   render() {
     //console.log('List', this.props.interviewQuestionList);
@@ -121,7 +133,9 @@ class InterviewQuestionList extends React.Component {
           <input className="form-control" style={{marginBottom: 10}} type="text" placeholder="Start typing to filter"
                  onChange={this.filter.bind(this)}/>
         </div>
-        <div>{interviewQuestions}</div>
+        <div>
+          {interviewQuestions}
+        </div>
       </div>
     )
   }
