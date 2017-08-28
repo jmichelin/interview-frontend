@@ -129,6 +129,7 @@ class Interview extends React.Component {
     //TODO remove question axios call
     let postUrl = 'https://infinite-waters-52055.herokuapp.com/interview/question/update';
     //let postUrl = 'http://localhost:7337/interview/question/update';
+    console.log('+++ filename: interviewList.js functionName: handleRemoveQuestion expected: object with id actual: ', question);
     axios({
       method: 'post',
       url: postUrl,
