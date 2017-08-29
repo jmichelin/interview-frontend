@@ -34,10 +34,7 @@ class ListInterviewTemplates extends React.Component {
 
     return (
       <div>
-        <h1>List Interview Template Here</h1>
-        <div>
-          Interview Nickname, Interview Description, Number of Questions, Estimated Interview Length
-        </div>
+        <h1>List Interview Template Here <button className="btn btn-default-outline"><span className="glyphicon glyphicon-pencil white" /></button></h1>
         <div>
           {interviewTemplates}
         </div>
@@ -63,13 +60,17 @@ const InterviewTemplate = (props) => {
   };
   return (
     <div className="panel panel-primary">
-      <div className="panel-heading">
-        <h3 className="panel-title"> {props.interviewTemplate.interviewNickname}</h3>
+      <div className="panel-heading clearfix">
+        <h3 className="panel-title pull-left"> {props.interviewTemplate.interviewNickname}</h3>
+        <div className="input-group-btn">
+          <button className="btn btn-primary pull-right"><span className="glyphicon glyphicon-remove"/></button>
+          <button className="btn btn-primary pull-right"><span className="glyphicon glyphicon-pencil" /></button>
+        </div>
       </div>
       <div className="panel-body" style={ulOverrideStyle}>
           <ul className="list-group no-bullets">
           <li className="list-group-item-info">Interview Description: {props.interviewTemplate.interviewDescription}</li>
-          <li className="list-group-item-info">Number Of Questions: {props.interviewTemplate.numberOfQuestions}</li>
+          <li className="list-group-item-info">Number Of Questions: {props.interviewTemplate.numberOfQuestions}&nbsp;<span className="glyphicon glyphicon-eye-open"></span></li>
           <li className="list-group-item-info">Estimated Interview Length: {props.interviewTemplate.estimatedInterviewLength}</li>
         </ul>
       </div>

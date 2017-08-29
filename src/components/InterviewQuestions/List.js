@@ -140,7 +140,7 @@ class InterviewQuestionList extends React.Component {
 }
 
 
-// TODO deleteQuestion
+// TODO move to another file
 
 const InterviewQuestion = (props) => {
   //handleRemove

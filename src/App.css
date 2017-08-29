@@ -126,8 +126,17 @@ Buttons
   /*background: #0090DA;*/
 }
 
+.btn-default {
+  /*color: #3D3935;*/
+  background: #3D3935;
+}
+
 .no-bullets {
   list-style-type: none
+}
+
+.white {
+  color: #ffffff
 }
 
 /*
