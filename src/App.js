@@ -22,6 +22,9 @@ class App extends Component {
                   <ul className="nav navbar-nav">
                     <li><a href="#/interviewQuestionList/active">Interview Question List</a></li>
                   </ul>
+                  <ul className="nav navbar-nav">
+                    <li><a href="#/interviewTemplateList/active">Interview Template List</a></li>
+                </ul>
               </div>
             </div>
           </nav>

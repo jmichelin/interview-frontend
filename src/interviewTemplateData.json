@@ -1,0 +1,52 @@
+{
+  "interviewTemplates": [
+    {
+      "interviewNickname": "Standard Interview",
+      "interviewDescription": "The standard interview given to most students",
+      "numberOfQuestions": "12",
+      "estimatedInterviewLength": "30",
+      "questions": [
+        {
+          "questionObjectId": "09oasv09a45fhgs4",
+          "questionOrder": "0"
+        },
+        {
+          "questionObjectId": "09oasdafasv09asdf4563a",
+          "questionOrder": "0"
+        }
+      ]
+    },
+    {
+      "interviewNickname": "Advanced Interview",
+      "interviewDescription": "An advanced interview given to the stronger students",
+      "numberOfQuestions": "8",
+      "estimatedInterviewLength": "30",
+      "questions": [
+        {
+          "questionObjectId": "09oasv09a45fhgs4",
+          "questionOrder": "0"
+        },
+        {
+          "questionObjectId": "09oasdafasv09asdf4563a",
+          "questionOrder": "0"
+        }
+      ]
+    },
+    {
+      "interviewNickname": "HiR Interview",
+      "interviewDescription": "A very advanced interview given to HiRs before they leave",
+      "numberOfQuestions": "30",
+      "estimatedInterviewLength": "60 mins",
+      "questions": [
+        {
+          "questionObjectId": "09oasv09a45fhgs4",
+          "questionOrder": "0"
+        },
+        {
+          "questionObjectId": "09oasdafasv09asdf4563a",
+          "questionOrder": "0"
+        }
+      ]
+    }
+  ]
+}
