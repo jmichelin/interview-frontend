@@ -34,7 +34,7 @@ class ListInterviewTemplates extends React.Component {
 
     return (
       <div>
-        <h1>List Interview Template Here <button className="btn btn-default-outline"><span className="glyphicon glyphicon-pencil white" /></button></h1>
+        <h1>List Interview Template Here <button className="btn btn-sectionHead"><span className="glyphicon glyphicon-pencil white" /></button></h1>
         <div>
           {interviewTemplates}
         </div>

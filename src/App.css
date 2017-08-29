@@ -126,10 +126,15 @@ Buttons
   /*background: #0090DA;*/
 }
 
-.btn-default {
-  /*color: #3D3935;*/
-  background: #3D3935;
+.btn-sectionHead:hover,
+.btn-sectionHead:focus,
+.btn-sectionHead:active,
+.btn-sectionHead {
+  color: #ffffff;
+  border-color: #285e8e;
+  background: #3d3935;
 }
+
 
 .no-bullets {
   list-style-type: none
