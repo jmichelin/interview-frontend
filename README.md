@@ -1,12 +1,12 @@
-#Interview Helper
+# Interview Helper
 
-##Goals of the Interview
+## Goals of the Interview
 
-###Display the goals of the interview to stay on track
+### Display the goals of the interview to stay on track
 
-##Interview Question Manager
+## Interview Question Manager
 
-###CRUD interview questions using infinite waters api
+### CRUD interview questions using infinite waters api
 
 Question Format
 
