@@ -11,8 +11,8 @@ class App extends Component {
       <div className="App container-fluid">
         <div className="App-header">
           <h2>Mock Interview Manager</h2>
-          <nav className="navbar navbar-default" role="navigation">
-            <div className="col-sm-7">
+          <nav className="navbar navbar-default col-sm-2" role="navigation">
+            <div>
               <div className="navbar-header">
                   <ul className="nav navbar-nav">
                     <li><a href="#/interviewQuestionList/active">Interview Question List</a></li>
